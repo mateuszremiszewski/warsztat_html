@@ -80,8 +80,8 @@ var titleValue = document.querySelector('.title.value');
 var colorValue = document.querySelector('.color.value');
 var patternValue = document.querySelector('.pattern.value');
 
-var img = document.querySelector('section.image_part.inline > img');
-
+var img = document.querySelector('.productImg');
+console.log(img);
 var sum = document.querySelector('.sum strong');
 
 //CHAIRS COST VALUES
@@ -98,19 +98,22 @@ function listElement(list,direction,valueDirection,value) {
 
         list[i].addEventListener('click', function () {
 
+
+
             if(this.innerText === 'Czarny'){
-                img.setAttribute('src', 'images/black_chair.png');
+                img.style.backgroundImage = "url('images/black_chair.png')";
             }
             if(this.innerText === 'Czerwony'){
-                img.setAttribute('src', 'images/red_chair.png');
+                img.style.backgroundImage = "url('images/red_chair.png')";
             }
             if(this.innerText === 'Pomarańczowy'){
-                img.setAttribute('src', 'images/orange_chair.png');
+                img.style.backgroundImage = "url('images/orange_chair.png')";
+                img.style.backgroundSize = 'contain'
             }
 
             direction.innerText = this.innerText;
             valueDirection.innerText = value;
-            
+            this.parentElement.parentElement.firstElementChild.innerText = this.innerText
             if(this.parentElement.style.display === 'block'){
                 this.parentElement.style.display = 'none';
             }
